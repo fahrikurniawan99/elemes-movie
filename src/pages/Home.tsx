@@ -1,7 +1,19 @@
-import React from 'react'
+import Hero from "@/components/Hero/Hero";
+import AiringTodayTv from "@/components/Movie/AiringTodayTv";
+import NowPlayingMovie from "@/components/Movie/NowPlayingMovie";
+import SearchResult from "@/components/Movie/SearchResult";
+import TopRatedMovies from "@/components/Movie/TopRatedMovies";
+import TopRatedTv from "@/components/Movie/TopRatedTv";
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <>
+      <Hero />
+      <SearchResult />
+      <TopRatedMovies />
+      <NowPlayingMovie />
+      <TopRatedTv />
+      <AiringTodayTv />
+    </>
+  );
 }
