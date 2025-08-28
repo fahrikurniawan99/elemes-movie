@@ -1,9 +1,9 @@
+import Container from "@/components/Layout/Container";
 import Skeleton from "@/components/Loading/Skeleton";
 import DetailPoster from "@/components/Poster/DetailPoster";
 import useDetailTvSeries from "@/hook/useDetailTvSeries";
 import useTVSeriesVideos from "@/hook/useTvSeriesVideos";
 import { getImageUrl } from "@/utils/tmdb";
-import { Container } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
