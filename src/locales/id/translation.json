@@ -8,5 +8,10 @@
     "now_playing_movie": "Film yang Sedang Tayang",
     "airing_today_tv": "Acara TV yang Tayang Hari Ini",
     "top_rated_tv": "Acara TV Peringkat Teratas",
-    "search_result" : "Hasil Pencarian"
+    "search_result" : "Hasil Pencarian",
+    "no_result" : "Tidak ada hasil ditemukan",
+    "back_home" : "Kembali ke beranda",
+    "watch_trailer": "Tonton Trailer",
+    "overview": "Ringkasan",
+    "rating": "Rating"
 }

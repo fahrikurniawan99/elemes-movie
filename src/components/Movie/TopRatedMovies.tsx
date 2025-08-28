@@ -1,12 +1,13 @@
 import useTopRatedMovies from "@/hook/useTopRatedMovies";
+import { getImageUrl } from "@/utils/tmdb";
 import { useTranslation } from "react-i18next";
 import HorizontalScroll from "../HorizontalScroll/HorizontalScroll";
 import Container from "../Layout/Container";
 import Skeleton from "../Loading/Skeleton";
-import MovieCard from "./MovieCard";
+import PosterCard from "../Poster/PosterCard";
 
 export default function TopRatedMovies() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { data, isLoading } = useTopRatedMovies({ page: 1, region: "" });
   const movies = data?.results || [];
 
@@ -18,7 +19,7 @@ export default function TopRatedMovies() {
       {movies.length > 0 ? (
         <HorizontalScroll
           items={movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} className="w-56 sm:w-60" imgClassName="h-80 sm:h-90"/>
+            <PosterCard id={movie.id} key={movie.id} imgUrl={getImageUrl(movie.poster_path)} title={movie.title} className="w-56 sm:w-60" imgClassName="h-80 sm:h-90"/>
           ))}
         />
       ) : (
@@ -26,9 +27,9 @@ export default function TopRatedMovies() {
           items={
             isLoading
               ? Array.from({ length: 15 }).map((_, index) => (
-                  <Skeleton className="h-64 w-48 shrink-0" />
+                  <Skeleton className="h-64 w-48 shrink-0"  key={index}/>
                 ))
-              : [<div className="text-gray-500">No movies found</div>]
+              : [<div className="text-gray-500">{t("no_result")}</div>]
           }
         />
       )}

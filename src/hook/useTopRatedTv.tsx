@@ -1,5 +1,5 @@
 import { MOVIE_API } from "@/services/movieApi";
-import type { TopRatedTvResponse } from "@/types/api";
+import type { TopRatedTvSeriesResponse } from "@/types/api";
 import delay from "@/utils/delay";
 import { useQuery } from "@tanstack/react-query";
 
@@ -16,7 +16,7 @@ export default function useTopRatedTv({
     queryKey: ["top-rated-tv", page, language],
     queryFn: async () => {
       delay(1000)
-      const response = await MOVIE_API.get<TopRatedTvResponse>("/tv/top_rated", {
+      const response = await MOVIE_API.get<TopRatedTvSeriesResponse>("/tv/top_rated", {
         params: {
           page,
           language,

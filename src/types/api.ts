@@ -1,4 +1,5 @@
-import type { MovieList } from "./movie"
+import type { MovieDetail, MovieList, MovieVideo } from "./movie"
+import type { TVSeriesDetail, TVSeriesList, TVSeriesVideo } from "./tvSeries"
 
 export type TopRatedMoviesResponse = {
     page: number,
@@ -14,16 +15,16 @@ export type NowPlayingMoviesResponse = {
     total_results: number
 }
 
-export type TopRatedTvResponse = {
+export type TopRatedTvSeriesResponse = {
     page: number,
-    results: MovieList[],
+    results: TVSeriesList[],
     total_pages: number,
     total_results: number
 }
 
-export type AiringTodayTvResponse = {
+export type AiringTodayTvSeriesResponse = {
     page: number,
-    results: MovieList[],
+    results: TVSeriesList[],
     total_pages: number,
     total_results: number
 }
@@ -35,8 +36,28 @@ export type SearchMovieResponse = {
     total_results: number
 }
 
+export type SearchTvSeriesResponse = {
+    page: number,
+    results: TVSeriesList[],
+    total_pages: number,
+    total_results: number
+}
+
 export type GuestSessionResponse = {
     success: boolean,
     guest_session_id: string
     expires_at: string
+}
+
+export type DetailMovieResponse = MovieDetail
+export type DetailTvSeriesResponse = TVSeriesDetail
+
+export type MovieVideosResponse = {
+    id: number;
+    results: MovieVideo[];
+}
+
+export type TVSeriesVideosResponse = {
+    id: number;
+    results: TVSeriesVideo[];
 }

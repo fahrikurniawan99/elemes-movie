@@ -1,9 +1,9 @@
 import Hero from "@/components/Hero/Hero";
-import AiringTodayTv from "@/components/Movie/AiringTodayTv";
+import SearchResult from "@/components/Search/SearchResult";
 import NowPlayingMovie from "@/components/Movie/NowPlayingMovie";
-import SearchResult from "@/components/Movie/SearchResult";
 import TopRatedMovies from "@/components/Movie/TopRatedMovies";
-import TopRatedTv from "@/components/Movie/TopRatedTv";
+import AiringTodayTv from "@/components/TVSeries/AiringTodayTv";
+import TopRatedTv from "@/components/TVSeries/TopRatedTv";
 
 export default function HomePage() {
   return (

@@ -8,5 +8,10 @@
     "now_playing_movie": "Now Playing Movies",
     "airing_today_tv": "Airing Today TV Shows",
     "top_rated_tv": "Top Rated TV Shows",
-    "search_result" : "Search Results"
+    "search_result" : "Search Results",
+    "no_result" : "No results found",
+    "back_home" : "Back to home",
+    "watch_trailer": "Watch Trailer",
+    "overview": "Overview",
+    "rating": "Rating"
 }
