@@ -36,7 +36,7 @@ export default function DetailMoviePage() {
   if (detailMovie?.isLoading) {
     return (
       <Container className="">
-        <div className="animate-pulse flex mt-20 gap-5">
+        <div className="animate-pulse md:flex mt-20 gap-5">
           <Skeleton className="w-full md:h-96 h-64 mb-4" />
           <div className="w-[80%] shrink-0">
             <Skeleton className="h-6   w-3/4 mb-2" />
