@@ -38,7 +38,7 @@ export default function TopRatedTv() {
           items={
             isLoading
               ? Array.from({ length: 15 }).map((_, index) => (
-                  <Skeleton className="h-64 w-48 shrink-0" />
+                  <Skeleton className="h-64 w-48 shrink-0" key={index} />
                 ))
               : [<div className="text-gray-500">{t("no_result")}</div>]
           }

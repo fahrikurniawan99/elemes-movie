@@ -5,6 +5,7 @@ import useTVSeriesVideos from "@/hook/useTvSeriesVideos";
 import { getImageUrl } from "@/utils/tmdb";
 import { Container } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 
@@ -59,25 +60,33 @@ export default function DetailTVSeriesPage() {
   }
 
   return (
-    <DetailPoster
-      background_url={
-        detailTVSeries?.data.backdrop_path
-          ? getImageUrl(detailTVSeries?.data.backdrop_path)
-          : ""
-      }
-      poster_url={
-        detailTVSeries?.data.poster_path
-          ? getImageUrl(detailTVSeries?.data.poster_path)
-          : ""
-      }
-      title={detailTVSeries?.data.name || ""}
-      id={parseInt(id || "0")}
-      runtime={detailTVSeries?.data.episode_run_time.reduce((a, b) => a + b, 0) || 0}
-      release_date={detailTVSeries?.data.first_air_date || ""}
-      genres={detailTVSeries?.data.genres || []}
-      overview={detailTVSeries?.data.overview || ""}
-      vote_average={detailTVSeries?.data.vote_average || 0}
-      trailerKey={trailerKey}
-    />
+    <>
+      <Helmet>
+        <title>Elemes - TV Series</title>
+        <meta name="description" content="Welcome to the TV Series page" />
+      </Helmet>
+      <DetailPoster
+        background_url={
+          detailTVSeries?.data.backdrop_path
+            ? getImageUrl(detailTVSeries?.data.backdrop_path)
+            : ""
+        }
+        poster_url={
+          detailTVSeries?.data.poster_path
+            ? getImageUrl(detailTVSeries?.data.poster_path)
+            : ""
+        }
+        title={detailTVSeries?.data.name || ""}
+        id={parseInt(id || "0")}
+        runtime={
+          detailTVSeries?.data.episode_run_time.reduce((a, b) => a + b, 0) || 0
+        }
+        release_date={detailTVSeries?.data.first_air_date || ""}
+        genres={detailTVSeries?.data.genres || []}
+        overview={detailTVSeries?.data.overview || ""}
+        vote_average={detailTVSeries?.data.vote_average || 0}
+        trailerKey={trailerKey}
+      />
+    </>
   );
 }

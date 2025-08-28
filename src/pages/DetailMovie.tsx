@@ -5,6 +5,7 @@ import useDetailMovie from "@/hook/useDetailMovie";
 import useMovieVideos from "@/hook/useMovieVideos";
 import { getImageUrl } from "@/utils/tmdb";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Link, useParams } from "react-router-dom";
 
@@ -59,25 +60,31 @@ export default function DetailMoviePage() {
   }
 
   return (
-    <DetailPoster
-      background_url={
-        detailMovie?.data.backdrop_path
-          ? getImageUrl(detailMovie?.data.backdrop_path)
-          : ""
-      }
-      poster_url={
-        detailMovie?.data.poster_path
-          ? getImageUrl(detailMovie?.data.poster_path)
-          : ""
-      }
-      title={detailMovie?.data.title || ""}
-      id={parseInt(id || "0")}
-      runtime={detailMovie?.data.runtime || 0}
-      release_date={detailMovie?.data.release_date || ""}
-      genres={detailMovie?.data.genres || []}
-      overview={detailMovie?.data.overview || ""}
-      vote_average={detailMovie?.data.vote_average || 0}
-      trailerKey={trailerKey}
-    />
+    <>
+      <Helmet>
+        <title>Elemes - Movie</title>
+        <meta name="description" content="Welcome to the movie page" />
+      </Helmet>
+      <DetailPoster
+        background_url={
+          detailMovie?.data.backdrop_path
+            ? getImageUrl(detailMovie?.data.backdrop_path)
+            : ""
+        }
+        poster_url={
+          detailMovie?.data.poster_path
+            ? getImageUrl(detailMovie?.data.poster_path)
+            : ""
+        }
+        title={detailMovie?.data.title || ""}
+        id={parseInt(id || "0")}
+        runtime={detailMovie?.data.runtime || 0}
+        release_date={detailMovie?.data.release_date || ""}
+        genres={detailMovie?.data.genres || []}
+        overview={detailMovie?.data.overview || ""}
+        vote_average={detailMovie?.data.vote_average || 0}
+        trailerKey={trailerKey}
+      />
+    </>
   );
 }
